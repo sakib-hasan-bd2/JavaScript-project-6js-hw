@@ -1,0 +1,77 @@
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f0f0f0;
+  font-family: "Roboto", sans-serif;
+}
+.game_title{
+  margin: 30px 0;
+}
+#board{
+  display: grid;
+  grid-template-columns: repeat(3,100px);
+  gap: 5px;
+  position: relative;
+}
+.cell{
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+  line-height: 100px;
+  text-align: center;
+  font-size: 35px;
+}
+.cell:hover{
+  background: ghostwhite;
+}
+.status{
+  margin: 30px 0;
+}
+.reset_button{
+  padding: 5px;
+  border-radius: 3px;
+  color:#fff;
+  background: rgb(1, 1, 213);
+  border: none;
+  cursor: pointer;
+  transition: all linear .3s;
+}
+.crose{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)rotate(405deg);
+}
+.crose .line1{
+  height: 5px;
+  width: 0; /*431px*/
+  background-color: #000;
+  border-radius: 2px;
+  transition: all linear .4s;
+}
+.crose .line2{
+  height: 5px;
+  width: 0/*431px*/;
+  background-color: #000;
+  border-radius: 2px;
+  position: relative;
+  left: 50%;
+  top:50%;
+  transform:translate(-50%, -50%) rotate(90deg) ;
+  transition: all linear .4s;
+}
+.reset_button:hover{
+  background:rgb(0, 0, 122);
+}
+.wining-cell{
+  background-color: aqua;
+}
+.wining_cell:hover{
+  background-color: aqua;
+}
+button{
+  border: none;
+}
