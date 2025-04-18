@@ -3,6 +3,7 @@ let gameBoard = ['', '', '', '', '', '', '', '', ''];
 let gameActive = true;
 
 const board = document.getElementById('board');
+
 for (let i = 0; i < 9; i++) {
   const cell = document.createElement('button');
   cell.classList = 'cell';
@@ -10,6 +11,7 @@ for (let i = 0; i < 9; i++) {
   board.appendChild(cell);
   cell.addEventListener('click', cellclick);
 }
+
 function cellclick(e) {
   const cell = e.target;
   const cellIndex = parseFloat(cell.getAttribute('data-index'));
@@ -44,10 +46,14 @@ function cellclick(e) {
     }, 500);
   }
 }
+
 function computerMove() {
-  const emptyCell = gameBoard
-    .map((value, index) => (value === '' ? index : null))
-    .filter(index => index !== null);
+  const emptyCell = [];
+  for (let i = 0; i < gameBoard.length; i++){
+    if (gameBoard[i] === '') {
+      emptyCell.push(i);
+    }
+  }
 
   if (emptyCell.length === 0 || !gameActive) {
     return;
@@ -74,7 +80,7 @@ function computerMove() {
   }
 
   currentPlayer = 'X';
-  document.querySelector('.status').innerHTML = `Player X turn`;
+  document.querySelector('.status').innerHTML = `Player 'X' turn`;
 }
 
 function checkWinner() {
@@ -125,13 +131,12 @@ function highlightWinner() {
       gameBoard[a] === gameBoard[c]
     ) {
       combination.map(item => {
-        document
-          .querySelector(`.cell[data-index="${item}"]`)
-          .classList.add('wining-cell');
+        document.querySelector(`.cell[data-index="${item}"]`).classList.add('wining-cell');
       });
     }
   }
 }
+
 // function corse() {
 //   document.querySelector('.line1').style.width = '431px';
 //   document.querySelector('.line2').style.width = '431px';
@@ -145,7 +150,7 @@ function resetGame() {
   gameBoard = ['', '', '', '', '', '', '', '', ''];
   currentPlayer = 'X';
   gameActive = true;
-  document.querySelector('.status').innerHTML = `Player X turn`;
+  document.querySelector('.status').innerHTML = `Player 'X' turn`;
 
   document.querySelectorAll('.cell').forEach(cell => {
     cell.innerText = '';
