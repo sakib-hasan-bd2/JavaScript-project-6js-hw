@@ -27,7 +27,6 @@ function cellclick(e) {
     document.querySelector('.status').innerHTML = `You win `;
     gameActive = false;
     highlightWinner();
-    corse();
     return;
   }
 
@@ -49,7 +48,7 @@ function cellclick(e) {
 
 function computerMove() {
   const emptyCell = [];
-  for (let i = 0; i < gameBoard.length; i++){
+  for (let i = 0; i < gameBoard.length; i++) {
     if (gameBoard[i] === '') {
       emptyCell.push(i);
     }
@@ -69,7 +68,6 @@ function computerMove() {
     document.querySelector('.status').innerHTML = `Computer win `;
     gameActive = false;
     highlightWinner();
-    corse();
     return;
   }
 
@@ -131,7 +129,9 @@ function highlightWinner() {
       gameBoard[a] === gameBoard[c]
     ) {
       combination.map(item => {
-        document.querySelector(`.cell[data-index="${item}"]`).classList.add('wining-cell');
+        document
+          .querySelector(`.cell[data-index="${item}"]`)
+          .classList.add('wining-cell');
       });
     }
   }
